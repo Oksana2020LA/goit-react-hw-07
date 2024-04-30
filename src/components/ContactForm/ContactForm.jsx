@@ -1,11 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
-import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 
 import css from "./ContactForm.module.css";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps.js";
 
 function ContactForm() {
   const inicialValues = {
@@ -16,12 +15,7 @@ function ContactForm() {
   const dispatch = useDispatch();
 
   const onAddContact = (formData) => {
-    const newContact = {
-      ...formData,
-      id: nanoid(),
-    };
-
-    dispatch(addContact(newContact));
+    dispatch(addContact(formData));
   };
 
   const nameId = useId();
@@ -36,11 +30,11 @@ function ContactForm() {
     name: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
-      .required("Input your name"),
+      .required("Required"),
     number: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
-      .required("Input your number"),
+      .required("Required"),
   });
   return (
     <Formik
