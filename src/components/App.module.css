@@ -1,0 +1,20 @@
+.phonebookContainer {
+display: inline-flex;
+flex-direction: column;
+  /* justify-content: center; */
+  background-color: #ece0a0;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+
+}
+
+.phonebookTitle {
+  font-size: 35px;
+  margin-bottom: 20px;
+  /* color: rgb(80, 224, 77); */
+  color: #333;
+}
